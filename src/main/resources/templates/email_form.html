@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <title>Email Form</title>
+    <link rel="stylesheet" type="text/css" media="screen, projection"
+          href="/static/css/bootstrap.css"
+          th:href="@{/css/bootstrap.css}"/>
+
+    <link rel="stylesheet" type="text/css" media="screen, projection"
+          href="/static/css/bootstrap-responsive.css"
+          th:href="@{/css/bootstrap-responsive.css}"/>
+</head>
+<body>
+<div class="row">
+    <div class="center-block col-md-4" style="float: none; background-color: #F5F5F5">
+
+        <form action="#" th:object="${user}" method="post">
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="Email"/>
+                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"> Email invalid </p>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+
+                <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"> Name too long </p>
+                <input type="name" th:field="*{username}" class="form-control" id="name" placeholder="Name"/>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+
+                <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address too long </p>
+                <input type="address" th:field="*{address}" class="form-control" id="address" placeholder="Address"/>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox">I agree to the terms</input>
+                </label>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

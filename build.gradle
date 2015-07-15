@@ -1,0 +1,48 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-release" }
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.8.RELEASE")
+
+    }
+}
+apply plugin: 'war'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+war {
+    baseName = 'website'
+    version = '0.1.0'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-release" }
+}
+
+configurations {
+    providedRuntime
+}
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.data:spring-data-mongodb")
+    compile("org.springframework.data:spring-data-rest-webmvc")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+    compile 'com.jayway.restassured:spring-mock-mvc:2.3.4'
+
+
+}
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.11'
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
