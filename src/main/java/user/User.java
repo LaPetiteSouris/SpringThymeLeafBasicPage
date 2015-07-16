@@ -1,8 +1,9 @@
 package user;
 
-import javax.validation.constraints.NotNull;
+
 import org.springframework.data.annotation.Id;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
@@ -12,14 +13,12 @@ public class User {
     @Id
     private String id;
     @Size(min=2, max=30)
-    @NotNull
     private String username;
     @Size(min=2, max=30)
     @NotNull
     private String email;
     private String password;
     @Size(min=2, max=30)
-    @NotNull
     private String address;
     private int role;
 /*
@@ -31,11 +30,11 @@ public class User {
         this.email = email;
     }
 */
-    public String getUsername() {
+    public String getusername() {
         return this.username;
     }
 
-    public void setUsername(String _username) {
+    public void setusername(String _username) {
         this.username = _username;
     }
 
@@ -55,11 +54,11 @@ public class User {
         return this.password;
     }
 
-    public String getAddress() {
+    public String getaddress() {
         return this.address;
     }
 
-    public void setAddress(String addr) {
+    public void setaddress(String addr) {
         this.address = addr;
     }
 

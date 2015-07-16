@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <title>Result</title>
+    <link rel="stylesheet" type="text/css" media="screen, projection"
+          href="/static/css/bootstrap.css"
+          th:href="@{/css/bootstrap.css}"/>
+
+    <link rel="stylesheet" type="text/css" media="screen, projection"
+          href="/static/css/bootstrap-responsive.css"
+          th:href="@{/css/bootstrap-responsive.css}"/>
 </head>
 <body>
+<div class="container">
+    <h2>User brief</h2>
 
+    <p>This is a brief of your data you provided. Keep it well !</p>
+    <table class="table" >
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${user.getusername()}"/>
+            <td th:text="${user.getemail()}"/>
+            <td th:text="${user.getaddress()}" />
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
